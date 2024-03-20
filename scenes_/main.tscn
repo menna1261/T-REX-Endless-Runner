@@ -1,0 +1,31 @@
+[gd_scene load_steps=8 format=3 uid="uid://cwc7i8ov76g77"]
+
+[ext_resource type="Script" path="res://scenes_/main.gd" id="1_f6ie8"]
+[ext_resource type="PackedScene" uid="uid://bllxfqcta08le" path="res://scenes_/bg.tscn" id="1_ywcaj"]
+[ext_resource type="PackedScene" uid="uid://cg4aq11kg1t1v" path="res://scenes_/ground.tscn" id="2_6a3su"]
+[ext_resource type="PackedScene" uid="uid://b7tdixa187u8" path="res://scenes_/dino.tscn" id="3_1iocb"]
+[ext_resource type="PackedScene" uid="uid://dx3wb26s3i5er" path="res://scenes_/hud.tscn" id="5_ighrh"]
+[ext_resource type="PackedScene" uid="uid://cpberfw0tb67u" path="res://scenes_/game_over.tscn" id="6_t8fpg"]
+[ext_resource type="AudioStream" uid="uid://dscpg6m666dta" path="res://assets/sound/jump.wav" id="7_n26m3"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_f6ie8")
+
+[node name="Bg" parent="." instance=ExtResource("1_ywcaj")]
+
+[node name="Ground" parent="." instance=ExtResource("2_6a3su")]
+
+[node name="Dino" parent="." instance=ExtResource("3_1iocb")]
+position = Vector2(102, 500)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 324)
+
+[node name="HUD" parent="." instance=ExtResource("5_ighrh")]
+
+[node name="GameOver" parent="." instance=ExtResource("6_t8fpg")]
+process_mode = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_n26m3")
+volume_db = -25.0
